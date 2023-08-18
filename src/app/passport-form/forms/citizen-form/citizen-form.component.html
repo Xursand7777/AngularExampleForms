@@ -1,0 +1,123 @@
+<form [formGroup]="citizenForm">
+  <mat-form-field appearance="outline">
+    <mat-label>FAMILIYA</mat-label>
+    <input
+      #pspSerial
+      matInput
+      type="text"
+      required
+      formControlName="surname"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>ISMI</mat-label>
+    <input
+      #pspSerial
+      matInput
+      type="text"
+      required
+      formControlName="name"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="w-full" appearance="outline">
+    <mat-label>Patronymic</mat-label>
+    <input
+      matInput
+      name="patronymic"
+      formControlName="patronymic"
+      type="text"
+    />
+  </mat-form-field>
+
+
+  <mat-form-field  appearance="outline">
+    <mat-label>PassportSeries</mat-label>
+    <input
+      matInput
+      name="passportSeria"
+      formControlName="passportSeria"
+      type="text"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="w-2/3" appearance="outline">
+    <mat-label>PassportNumber</mat-label>
+    <input
+      matInput
+      name="passportNumber"
+      formControlName="passportNumber"
+      type="text"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Choose a date</mat-label>
+    <input matInput formControlName="birthDate" [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="m-w-0 w-full">
+    <mat-label>PlaceBirth</mat-label>
+    <input
+      matInput
+      name="placeBirth"
+      formControlName="placeBirth"
+      type="text"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="m-w-0 w-full">
+    <mat-label>PlaceOfWork</mat-label>
+    <input
+      matInput
+      name="companyName"
+      formControlName="companyName"
+      type="text"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="m-w-0 w-full">
+    <mat-label>Positions</mat-label>
+    <input
+      matInput
+      name="position"
+      formControlName="position"
+      type="text"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="m-w-0 w-full">
+    <mat-label>countryBirthId</mat-label>
+    <input
+      matInput
+      name="countryBirthId"
+      formControlName="countryBirthId"
+      type="text"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="m-w-0 w-full">
+    <mat-label>districtBirthId</mat-label>
+    <input
+      matInput
+      name="districtBirthId"
+      formControlName="districtBirthId"
+      type="text"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="m-w-0 w-full">
+    <mat-label>Location</mat-label>
+    <textarea
+      matInput
+      name="address"
+      required
+      formControlName="address"
+      type="text"
+    ></textarea>
+  </mat-form-field>
+
+</form>

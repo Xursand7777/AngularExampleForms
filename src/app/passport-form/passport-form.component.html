@@ -1,0 +1,97 @@
+<p>Passport Form</p>
+
+<form [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Пасспорт серия</mat-label>
+    <input
+      #pspSerial
+      matInput
+      name="pspSerial"
+      type="text"
+      required
+      formControlName="passportSerial"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Пасспорт номер</mat-label>
+    <input
+      #pspNumber
+      matInput
+      name="pspNumber"
+      formControlName="passportNumber"
+      type="text"
+      maxlength="7"
+      minlength="7"
+    />
+    <mat-hint align="end">{{ pspNumber.value.length }} / 7</mat-hint>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Choose a date</mat-label>
+    <input matInput formControlName="date" [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</form>
+
+<button type="submit" (click)="onSubmit()">Submit</button>
+
+
+<mat-form-field appearance="outline">
+  <mat-label>citizenship</mat-label>
+  <mat-select
+    #matSelect
+    required
+  >
+    <mat-option
+      *ngFor="let item of citizensType"
+      [value]="item.key"
+    >
+      {{ item.value }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<ng-container [ngSwitch]="citizenType$$ | async">
+  <div *ngSwitchCase="1">
+    <ng-container *ngTemplateOutlet="citizenForm"></ng-container>
+  </div>
+  <div *ngSwitchCase="2">
+    <ng-container *ngTemplateOutlet="statelessForm"></ng-container>
+  </div>
+  <div *ngSwitchCase="3">
+  <ng-container *ngTemplateOutlet="foreignForm"></ng-container>
+  </div>
+  <div *ngSwitchCase="4">
+    <ng-container *ngTemplateOutlet="deadForm"></ng-container>
+  </div>
+  <div *ngSwitchDefault>
+    <ng-container *ngTemplateOutlet="citizenForm"></ng-container>
+  </div>
+</ng-container>
+
+
+
+<ng-template #citizenForm>
+  <ng-container>
+    <app-citizen-form [citizenForm]="citizenDataForm" ></app-citizen-form>
+  </ng-container>
+</ng-template>
+
+<ng-template #foreignForm>
+  <app-foreign-form></app-foreign-form>
+</ng-template>
+
+<ng-template #statelessForm>
+  <app-stateless-form></app-stateless-form>
+</ng-template>
+
+<ng-template #deadForm>
+ <app-dead-form></app-dead-form>
+</ng-template>
+
+
+

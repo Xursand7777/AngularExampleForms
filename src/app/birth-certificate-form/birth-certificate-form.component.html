@@ -1,0 +1,27 @@
+<form  [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Гувохнома серия</mat-label>
+    <input
+      #serialNumber
+      matInput
+      name="pspSerial"
+      type="text"
+      required
+      formControlName="birthSerialNumber"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Гувохнома код</mat-label>
+    <input
+      #birthCode
+      matInput
+      name="pspNumber"
+      formControlName="birthCode"
+      type="text"
+      maxlength="4"
+      minlength="4"
+    />
+    <mat-hint align="end">{{ birthCode.value.length }} / 7</mat-hint>
+  </mat-form-field>
+</form>

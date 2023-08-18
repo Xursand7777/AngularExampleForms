@@ -1,0 +1,25 @@
+<button pButton
+        type="button"
+        class="save-button" (click)="searchGPC()"
+>
+  Passport Malumot Qidirish
+</button>
+
+<button
+  pButton
+  type="button"
+  class="save-button"
+  (click)="searchBirthCertificate()"
+>
+  Guvoxnoma Boyicha Malumot Qidirish
+</button>
+
+
+<ng-container [formGroup]="parentForm">
+  <app-passport-search *ngIf="isPassportSearch"></app-passport-search>
+</ng-container>
+
+<ng-container [formGroup]="parentForm">
+  <app-birth-certificate-form *ngIf="isBirthCertificateSearch"></app-birth-certificate-form>
+</ng-container>
+
